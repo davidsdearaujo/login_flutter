@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../app_bloc.dart';
-import '../app_module.dart';
+import 'home_bloc.dart';
+import 'home_module.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,16 +9,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final AppBloc appBloc = AppModule.to.bloc();
   @override
   Widget build(BuildContext context) {
+    final HomeBloc bloc = HomeModule.to.bloc();
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),
-            onPressed: () => appBloc.tokenController.add(null),
+            onPressed: bloc.logout,
           ),
         ],
       ),
