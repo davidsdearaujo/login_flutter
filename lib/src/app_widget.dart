@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StreamBuilder<Object>(
+      home: StreamBuilder<String>(
         stream: bloc.tokenController,
         builder: (context, snapshot) {
           if (snapshot.hasData)
